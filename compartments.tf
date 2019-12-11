@@ -6,4 +6,5 @@ resource "oci_identity_compartment" "compartments" {
   count       = "${var.user_count}"
   name        = "${format("Project%03d", count.index + 1)}"
   description = "Compartment for user ${format("User%03d", count.index + 1)}"
+  compartment_id = "${var.parent_compartment}"
 }
